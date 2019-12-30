@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(["prefix"=>"importacao"],function(){
+    Route::get('/', 'ImportacaoController@index')->name('importacao.index');
+    Route::get('/new', 'ImportacaoController@new')->name('importacao.new');
+    Route::post('/new', 'ImportacaoController@new_post')->name('importacao.new.post');
+});
