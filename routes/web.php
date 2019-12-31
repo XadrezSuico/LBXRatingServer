@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect("/login");
+});
+
+Route::get("/register", function(){
+    return redirect("/login");
+});
+Route::post("/register", function(){
+    return redirect("/login");
 });
 
 Auth::routes();
@@ -23,4 +30,9 @@ Route::group(["prefix"=>"importacao"],function(){
     Route::get('/', 'ImportacaoController@index')->name('importacao.index');
     Route::get('/new', 'ImportacaoController@new')->name('importacao.new');
     Route::post('/new', 'ImportacaoController@new_post')->name('importacao.new.post');
+});
+
+Route::group(["prefix"=>"rating"],function(){
+    Route::get('/search/id/{id}', 'RatingController@searchByID')->name('rating.search.id');
+    Route::get('/search/byName', 'RatingController@searchFindByName')->name('rating.search.byName');
 });

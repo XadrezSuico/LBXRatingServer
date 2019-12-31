@@ -14,4 +14,18 @@ class Rating extends Model
     protected static $logFillable = true;
 
     protected static $logAttributes = ['*'];
+
+    public function getModalidade(){
+        if($this->tipo_modalidade > -1){
+            switch($this->tipo_modalidade){
+                case 0:
+                    return "STD";
+                case 1:
+                    return "RPD";
+                case 2:
+                    return "BTZ";
+            }
+        }
+        return false;
+    }
 }
