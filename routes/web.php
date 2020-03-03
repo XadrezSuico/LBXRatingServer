@@ -36,3 +36,6 @@ Route::group(["prefix"=>"rating"],function(){
     Route::get('/search/id/{id}', 'RatingController@searchByID')->name('rating.search.id');
     Route::get('/search/byName', 'RatingController@searchFindByName')->name('rating.search.byName');
 });
+Route::group(["prefix"=>"cron"],function(){
+    Route::get('/download/{id}', 'CronController@downloadRating')->name('cron.download');
+});

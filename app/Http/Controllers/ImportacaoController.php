@@ -39,4 +39,6 @@ class ImportacaoController extends Controller
         Excel::import($ratings_import, $request->file('arquivo'));
         return redirect('/')->with('success', 'All good!');
     }
+
+    
 }
